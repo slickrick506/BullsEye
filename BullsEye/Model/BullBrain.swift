@@ -29,7 +29,8 @@ struct BullBrain {
     var score = 0
     var points = 0
     var finalScore = 0
-        
+    var actionTitle = "Next Round"
+    
     mutating func setTargetValue(sliderMin: Int, sliderMax: Int) -> Int {
         targetValue = Int.random(in: Int(sliderMin)...Int(sliderMax))
         return targetValue
@@ -64,6 +65,21 @@ struct BullBrain {
         }
         return alertTitle
     }
+    
+    mutating func setActionTitle(round: Int) -> String {
+        let nextLevelTitle = "NEXT LEVEL"
+        let nextRoundTitle = "Next Round"
+        
+        if round % 2 == 0 {
+            actionTitle = nextLevelTitle
+        } else {
+            actionTitle = nextRoundTitle
+        }
+        return actionTitle
+        
+    }
+    
+
     
 }
 

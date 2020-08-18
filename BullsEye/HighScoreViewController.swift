@@ -10,7 +10,6 @@ import UIKit
 import Foundation
 
 class HighScoreViewController: UIViewController {
-    var highScores: [Int] = []
     
     @IBOutlet weak var firstPlace: UILabel!
     @IBOutlet weak var secondPlace: UILabel!
@@ -24,6 +23,8 @@ class HighScoreViewController: UIViewController {
     }
     
     func getHiScoreMsg(index: Int) -> String {
+        let highScores = UserDefaults.standard.array(forKey: "HighScoresSaved") as? [Int] ?? []
+        
         if let dillon = highScores[safe: index] {
             return String(dillon)
         } else {

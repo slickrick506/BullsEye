@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ViewController: UIViewController {
    
     @IBOutlet weak var scoreLabel: UILabel!
@@ -28,13 +26,12 @@ class ViewController: UIViewController {
     var bullBrain = BullBrain()
     var level = 1
     var highScores: [Int] = []
+    var actionTitle = "Next Round"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         maxValueLabel.text = String(Int(slider.maximumValue))
         startNewRound()
-        slider.setThumbImage(#imageLiteral(resourceName: "bullThumb"), for: .normal)
-        slider.setThumbImage(#imageLiteral(resourceName: "bullThumb"), for: .highlighted)
     }
     
     @IBAction func hitMePressed() {
@@ -44,10 +41,9 @@ class ViewController: UIViewController {
         let message = "You selected \(currentValue) \nTarget was \(targetValue) \nYou scored \(points) points"
         let alertTitle = bullBrain.getAlertTitle(difference: bullBrain.difference).rawValue
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Next Round", style: .default, handler: { _ in
+        let action = UIAlertAction(title: bullBrain.setActionTitle(round: round), style: .default, handler: { _ in
             self.levelSelect()
             self.startNewRound()
-            
         })
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
@@ -64,6 +60,12 @@ class ViewController: UIViewController {
         round = 0
         level = 1
         startNewRound()
+        let transition = CATransition()
+        transition.type = CATransitionType.fade
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name:
+                                    CAMediaTimingFunctionName.easeOut)
+        view.layer.add(transition, forKey: nil)
     }
     
     func startNewRound() {
@@ -97,28 +99,27 @@ class ViewController: UIViewController {
             highScores = highScores.dropLast(1)
             print(highScores)
         }
-        print(highScores)
+        UserDefaults.standard.set(highScores, forKey: "HighScoresSaved")
             
             let alert = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             present(alert, animated: true, completion: {self.startOverPressed()})
-        
     }
     
     func levelSelect() {
         if round == 2 && score < 180 {
             gameOver()
-        } else if round == 4 && score < 600 {
+        } else if round == 4 && score < 500 {
             gameOver()
-        } else if round == 6 && score < 1500 {
+        } else if round == 6 && score < 1400 {
             gameOver()
-        } else if round == 8 && score < 3000 {
+        } else if round == 8 && score < 3500 {
             gameOver()
         } else if round == 10 {
             gameOver()
         }
-        
+
         if round % 2 == 0 {
             level += 1
             slider.maximumValue *= 2
@@ -129,11 +130,7 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goToHighScores", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToHighScores" {
-            let destinationVC = segue.destination as! HighScoreViewController
-            destinationVC.highScores = highScores
-        }
-    }
+
+    
 }
 
