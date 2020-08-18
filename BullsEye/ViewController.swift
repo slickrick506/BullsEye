@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
    
     @IBOutlet weak var scoreLabel: UILabel!
@@ -31,9 +33,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         maxValueLabel.text = String(Int(slider.maximumValue))
         startNewRound()
- 
+        slider.setThumbImage(#imageLiteral(resourceName: "bullThumb"), for: .normal)
+        slider.setThumbImage(#imageLiteral(resourceName: "bullThumb"), for: .highlighted)
     }
-    
     
     @IBAction func hitMePressed() {
         let points = bullBrain.calculateAttempt(sliderCurrentValue: currentValue, sliderMax: Int(slider.maximumValue))
@@ -90,6 +92,12 @@ class ViewController: UIViewController {
     func gameOver() {
             highScores.append(score)
             highScores.sort(by: >)
+        if highScores.count > 3 {
+            print(highScores)
+            highScores = highScores.dropLast(1)
+            print(highScores)
+        }
+        print(highScores)
             
             let alert = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)

@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		CD6549BA24E9BE49009B3B70 /* BullBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6549B924E9BE49009B3B70 /* BullBrain.swift */; };
 		CDB5DD4024EACC9700D9C3AE /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */; };
-		CDB5DD4124EACC9700D9C3AE /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB5DD3F24EACC9700D9C3AE /* HighScoreViewController.xib */; };
 		CDDDDCD724E7397C00283257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDDCD624E7397C00283257 /* AppDelegate.swift */; };
 		CDDDDCD924E7397C00283257 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDDCD824E7397C00283257 /* SceneDelegate.swift */; };
 		CDDDDCDB24E7397C00283257 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDDCDA24E7397C00283257 /* ViewController.swift */; };
 		CDDDDCDE24E7397C00283257 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDDDCDC24E7397C00283257 /* Main.storyboard */; };
 		CDDDDCE024E7397E00283257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDDDDCDF24E7397E00283257 /* Assets.xcassets */; };
 		CDDDDCE324E7397E00283257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDDDDCE124E7397E00283257 /* LaunchScreen.storyboard */; };
+		CDF23ACE24EB967400A233F5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDF23ACC24EB967400A233F5 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CD6549B924E9BE49009B3B70 /* BullBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullBrain.swift; sourceTree = "<group>"; };
 		CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
-		CDB5DD3F24EACC9700D9C3AE /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		CDDDDCD324E7397C00283257 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDDDDCD624E7397C00283257 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDDDDCD824E7397C00283257 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +29,7 @@
 		CDDDDCDF24E7397E00283257 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDDDDCE224E7397E00283257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDDDDCE424E7397E00283257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDF23ACD24EB967400A233F5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,17 +63,25 @@
 			isa = PBXGroup;
 			children = (
 				CDDDDCDA24E7397C00283257 /* ViewController.swift */,
-				CD6549B924E9BE49009B3B70 /* BullBrain.swift */,
 				CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */,
+				CDF23A9524EB668F00A233F5 /* Model */,
 				CDDDDCDC24E7397C00283257 /* Main.storyboard */,
 				CDDDDCDF24E7397E00283257 /* Assets.xcassets */,
 				CDDDDCD824E7397C00283257 /* SceneDelegate.swift */,
 				CDDDDCD624E7397C00283257 /* AppDelegate.swift */,
 				CDDDDCE124E7397E00283257 /* LaunchScreen.storyboard */,
 				CDDDDCE424E7397E00283257 /* Info.plist */,
-				CDB5DD3F24EACC9700D9C3AE /* HighScoreViewController.xib */,
+				CDF23ACC24EB967400A233F5 /* Model.xcdatamodeld */,
 			);
 			path = BullsEye;
+			sourceTree = "<group>";
+		};
+		CDF23A9524EB668F00A233F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD6549B924E9BE49009B3B70 /* BullBrain.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +145,6 @@
 				CDDDDCE324E7397E00283257 /* LaunchScreen.storyboard in Resources */,
 				CDDDDCE024E7397E00283257 /* Assets.xcassets in Resources */,
 				CDDDDCDE24E7397C00283257 /* Main.storyboard in Resources */,
-				CDB5DD4124EACC9700D9C3AE /* HighScoreViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +160,7 @@
 				CDDDDCD724E7397C00283257 /* AppDelegate.swift in Sources */,
 				CDDDDCD924E7397C00283257 /* SceneDelegate.swift in Sources */,
 				CD6549BA24E9BE49009B3B70 /* BullBrain.swift in Sources */,
+				CDF23ACE24EB967400A233F5 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +358,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CDF23ACC24EB967400A233F5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CDF23ACD24EB967400A233F5 /* Model.xcdatamodel */,
+			);
+			currentVersion = CDF23ACD24EB967400A233F5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CDDDDCCB24E7397C00283257 /* Project object */;
 }

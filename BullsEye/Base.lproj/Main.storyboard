@@ -200,7 +200,6 @@
                                 </state>
                                 <connections>
                                     <action selector="highScoresPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d0D-hh-gp9"/>
-                                    <segue destination="tEI-Pu-LbG" kind="presentation" identifier="goToHighScores" id="6Lj-Y5-GNm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -214,6 +213,7 @@
                         <outlet property="scoreLabel" destination="bnm-3n-R4H" id="o6n-gE-qpw"/>
                         <outlet property="slider" destination="G9c-z9-Y6d" id="i6X-gf-DCx"/>
                         <outlet property="targetLabel" destination="noc-9J-Gll" id="vJe-bE-zIq"/>
+                        <segue destination="tEI-Pu-LbG" kind="presentation" identifier="goToHighScores" id="rhs-u4-f4d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

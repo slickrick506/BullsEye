@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
 class HighScoreViewController: UIViewController {
-    
     var highScores: [Int] = []
     
     @IBOutlet weak var firstPlace: UILabel!
@@ -18,17 +18,17 @@ class HighScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if highScores.count > 0 {
-            firstPlace.text = String("1st: \(highScores[0])")
+        firstPlace.text = "1st: \(getHiScoreMsg(index: 0))"
+        secondPlace.text = "2nd: \(getHiScoreMsg(index: 1))"
+        thirdPlace.text = "3rd: \(getHiScoreMsg(index: 2))"
+    }
+    
+    func getHiScoreMsg(index: Int) -> String {
+        if let dillon = highScores[safe: index] {
+            return String(dillon)
+        } else {
+            return "PLAY MORE"
         }
-        if highScores.count > 1 {
-            secondPlace.text = String("2nd: \(highScores[1])")
-        }
-        if highScores.count > 2 {
-            thirdPlace.text = String("3rd: \(highScores[2])")
-        }
-        
     }
     
     @IBAction func backPressed(_ sender: UIButton) {
