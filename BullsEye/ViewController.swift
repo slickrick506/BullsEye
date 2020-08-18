@@ -114,7 +114,7 @@ class ViewController: UIViewController {
             gameOver()
         } else if round == 6 && score < 1400 {
             gameOver()
-        } else if round == 8 && score < 3500 {
+        } else if round == 8 && score < 2800 {
             gameOver()
         } else if round == 10 {
             gameOver()

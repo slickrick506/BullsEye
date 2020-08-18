@@ -69,11 +69,14 @@ struct BullBrain {
     mutating func setActionTitle(round: Int) -> String {
         let nextLevelTitle = "NEXT LEVEL"
         let nextRoundTitle = "Next Round"
+        let youWinTitle = "YOU WIN!"
         
-        if round % 2 == 0 {
+        if round < 10 && round % 2 == 0 {
             actionTitle = nextLevelTitle
-        } else {
+        } else if round % 2 != 0 {
             actionTitle = nextRoundTitle
+        } else if round == 10 {
+            actionTitle = youWinTitle
         }
         return actionTitle
         
