@@ -9,12 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+   
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var maxValueLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     
     var currentValue: Int = 0
     var randomNumber = 0
@@ -22,28 +23,30 @@ class ViewController: UIViewController {
     var round = 0
     var targetValue = 0
     var finalScore = 0
-    var bullBrain = BullsEyeModel()
-
+    var bullBrain = BullBrain()
+    var level = 1
+    var highScores: [Int] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         maxValueLabel.text = String(Int(slider.maximumValue))
         startNewRound()
+ 
     }
-
+    
+    
     @IBAction func hitMePressed() {
-        
         let points = bullBrain.calculateAttempt(sliderCurrentValue: currentValue, sliderMax: Int(slider.maximumValue))
-        
         score += points
         
         let message = "You selected \(currentValue) \nTarget was \(targetValue) \nYou scored \(points) points"
         let alertTitle = bullBrain.getAlertTitle(difference: bullBrain.difference).rawValue
         let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Next Round", style: .default, handler: { _ in
+            self.levelSelect()
             self.startNewRound()
-            self.gameOver()
+            
         })
-        
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
@@ -54,8 +57,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startOverPressed() {
+        slider.maximumValue = 100
         score = 0
         round = 0
+        level = 1
         startNewRound()
     }
     
@@ -72,10 +77,10 @@ class ViewController: UIViewController {
         roundLabel.text = String(round)
         targetLabel.text = String(targetValue)
         maxValueLabel.text = String(Int(slider.maximumValue))
+        levelLabel.text = "Level: \(level)"
     }
     
     @IBAction func infoPressed() {
-        
         let alert = UIAlertController(title: "Made By Slickrick", message: "in Bozeman, MT", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
@@ -83,16 +88,44 @@ class ViewController: UIViewController {
     }
     
     func gameOver() {
-        if round > 3 {
+            highScores.append(score)
+            highScores.sort(by: >)
             
-            finalScore = score
-            
-            let alert = UIAlertController(title: "Game Over", message: "Final Score: \(finalScore)", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Game Over", message: "Final Score: \(score)", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(action)
             present(alert, animated: true, completion: {self.startOverPressed()})
+        
+    }
+    
+    func levelSelect() {
+        if round == 2 && score < 180 {
+            gameOver()
+        } else if round == 4 && score < 600 {
+            gameOver()
+        } else if round == 6 && score < 1500 {
+            gameOver()
+        } else if round == 8 && score < 3000 {
+            gameOver()
+        } else if round == 10 {
+            gameOver()
+        }
+        
+        if round % 2 == 0 {
+            level += 1
+            slider.maximumValue *= 2
         }
     }
     
+    @IBAction func highScoresPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToHighScores", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToHighScores" {
+            let destinationVC = segue.destination as! HighScoreViewController
+            destinationVC.highScores = highScores
+        }
+    }
 }
 

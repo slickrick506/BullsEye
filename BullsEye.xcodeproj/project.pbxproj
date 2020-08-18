@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD6549BA24E9BE49009B3B70 /* BullsEyeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6549B924E9BE49009B3B70 /* BullsEyeModel.swift */; };
+		CD6549BA24E9BE49009B3B70 /* BullBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6549B924E9BE49009B3B70 /* BullBrain.swift */; };
 		CDB5DD4024EACC9700D9C3AE /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */; };
 		CDB5DD4124EACC9700D9C3AE /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDB5DD3F24EACC9700D9C3AE /* HighScoreViewController.xib */; };
 		CDDDDCD724E7397C00283257 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDDDCD624E7397C00283257 /* AppDelegate.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CD6549B924E9BE49009B3B70 /* BullsEyeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeModel.swift; sourceTree = "<group>"; };
+		CD6549B924E9BE49009B3B70 /* BullBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullBrain.swift; sourceTree = "<group>"; };
 		CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		CDB5DD3F24EACC9700D9C3AE /* HighScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		CDDDDCD324E7397C00283257 /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				CDDDDCDA24E7397C00283257 /* ViewController.swift */,
-				CD6549B924E9BE49009B3B70 /* BullsEyeModel.swift */,
+				CD6549B924E9BE49009B3B70 /* BullBrain.swift */,
 				CDB5DD3E24EACC9700D9C3AE /* HighScoreViewController.swift */,
 				CDDDDCDC24E7397C00283257 /* Main.storyboard */,
 				CDDDDCDF24E7397E00283257 /* Assets.xcassets */,
@@ -152,7 +152,7 @@
 				CDB5DD4024EACC9700D9C3AE /* HighScoreViewController.swift in Sources */,
 				CDDDDCD724E7397C00283257 /* AppDelegate.swift in Sources */,
 				CDDDDCD924E7397C00283257 /* SceneDelegate.swift in Sources */,
-				CD6549BA24E9BE49009B3B70 /* BullsEyeModel.swift in Sources */,
+				CD6549BA24E9BE49009B3B70 /* BullBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
